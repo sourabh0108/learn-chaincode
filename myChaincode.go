@@ -81,7 +81,7 @@ func (t *SimpleChaincode) write(stub shim.ChaincodeStubInterface, args []string)
 	value = args[1] // list of accessRecords
 
 	username, _ := GetCertAttribute(stub, "username")
-	if username == "user_type4_0" || username == "user_type4_2" {
+	if username == "user_type1_0" || username == "user_type1_1" {
 		err = stub.PutState(key, []byte(value)) //write the variable into the chaincode state
 	} else {
 		return nil, errors.New(username + " does not have access to create a patient asset")
